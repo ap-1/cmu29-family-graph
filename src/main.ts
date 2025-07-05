@@ -114,7 +114,7 @@ const graph = new ForceGraph3D(document.querySelector('body')!)
     .nodeThreeObject((node: NodeType) => {
         const id = typeof node.id === "string" ? node.id : String(node.id);
 
-        const texture = textureLoader.load(`./photos/${id}.png`);
+        const texture = textureLoader.load(`/${id}.png`);
         const material = new THREE.SpriteMaterial({
             map: texture,
             alphaMap: circularMask,
