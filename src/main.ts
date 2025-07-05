@@ -101,6 +101,28 @@ const createCircularMask = () => {
     return new THREE.CanvasTexture(canvas);
 };
 
+const createStarfield = () => {
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsMaterial = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 1,
+        sizeAttenuation: false
+    });
+
+    const starsVertices = [];
+    const numStars = 2000;
+
+    for (let i = 0; i < numStars; i++) {
+        const x = (Math.random() - 0.5) * 2000;
+        const y = (Math.random() - 0.5) * 2000;
+        const z = (Math.random() - 0.5) * 2000;
+        starsVertices.push(x, y, z);
+    }
+
+    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
+    return new THREE.Points(starsGeometry, starsMaterial);
+};
+
 const circularMask = createCircularMask();
 
 const graph = new ForceGraph3D(document.querySelector('body')!)
@@ -108,6 +130,7 @@ const graph = new ForceGraph3D(document.querySelector('body')!)
     .nodeLabel("id")
     .nodeAutoColorBy("gen")
     .linkAutoColorBy("family")
+    .linkLabel("family")
     .linkWidth(1)
     .linkOpacity(0.5)
     .linkResolution(6)
@@ -132,6 +155,9 @@ const graph = new ForceGraph3D(document.querySelector('body')!)
         return sprite;
     })
     .nodeThreeObjectExtend(true); // enables custom objects
+
+const starfield = createStarfield();
+graph.scene().add(starfield);
 
 window.addEventListener("resize", () => {
     graph.width(window.innerWidth).height(window.innerHeight);
