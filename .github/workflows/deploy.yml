@@ -26,11 +26,11 @@ jobs:
       - name: Build the app
         run: bun run build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload static files as artifact
+        id: deployment
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: dist
+          path: dist/
 
   deploy:
     needs: build
