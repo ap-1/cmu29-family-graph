@@ -3,136 +3,136 @@ import * as THREE from 'three';
 import "./style.css"
 
 interface NodeType {
-  gen?: number;
-  id?: string | number;
+    gen?: number;
+    id?: string | number;
 }
 
 const data = {
-  nodes: [
-    { gen: 1, id: "lee" },
-    { gen: 1, id: "anish" },
-    { gen: 1, id: "izzy" },
-    { gen: 1, id: "ash" },
-    { gen: 1, id: "emma" },
-    { gen: 2, id: "vivek" },
-    { gen: 2, id: "li" },
-    { gen: 2, id: "katherine" },
-    { gen: 2, id: "max" },
-    { gen: 2, id: "andy" },
-    { gen: 2, id: "andrew" },
-    { gen: 2, id: "charles" },
-    { gen: 2, id: "anish jr" },
-    { gen: 2, id: "pius" },
-    { gen: 2, id: "vidhaat" },
-    { gen: 2, id: "vidur" },
-    { gen: 2, id: "ivory" },
-    { gen: 2, id: "aiden" },
-    { gen: 2, id: "jesse" },
-    { gen: 2, id: "vincent" },
-    { gen: 2, id: "yue" },
-    { gen: 2, id: "kaitlyn" },
-    { gen: 2, id: "justin" },
-    { gen: 2, id: "edward" },
-    { gen: 2, id: "steven" },
-    { gen: 2, id: "amy" },
-    { gen: 2, id: "faisal" },
-    { gen: 2, id: "eddie" }
-  ],
-  links: [
-    // imps
-    { source: "anish", target: "vivek", family: "imps" },
-    { source: "anish", target: "li", family: "imps" },
-    { source: "anish", target: "katherine", family: "imps" },
-    { source: "anish", target: "max", family: "imps" },
-    { source: "anish", target: "andy", family: "imps" },
-    { source: "anish", target: "andrew", family: "imps" },
-    { source: "anish", target: "charles", family: "imps" },
-    { source: "anish", target: "anish jr", family: "imps" },
-    { source: "anish", target: "pius", family: "imps" },
-    { source: "anish", target: "vidhaat", family: "imps" },
-    { source: "anish", target: "vidur", family: "imps" },
+    nodes: [
+        { gen: 1, id: "lee" },
+        { gen: 1, id: "anish" },
+        { gen: 1, id: "izzy" },
+        { gen: 1, id: "ash" },
+        { gen: 1, id: "emma" },
+        { gen: 2, id: "vivek" },
+        { gen: 2, id: "li" },
+        { gen: 2, id: "katherine" },
+        { gen: 2, id: "max" },
+        { gen: 2, id: "andy" },
+        { gen: 2, id: "andrew" },
+        { gen: 2, id: "charles" },
+        { gen: 2, id: "anish jr" },
+        { gen: 2, id: "pius" },
+        { gen: 2, id: "vidhaat" },
+        { gen: 2, id: "vidur" },
+        { gen: 2, id: "ivory" },
+        { gen: 2, id: "aiden" },
+        { gen: 2, id: "jesse" },
+        { gen: 2, id: "vincent" },
+        { gen: 2, id: "yue" },
+        { gen: 2, id: "kaitlyn" },
+        { gen: 2, id: "justin" },
+        { gen: 2, id: "edward" },
+        { gen: 2, id: "steven" },
+        { gen: 2, id: "amy" },
+        { gen: 2, id: "faisal" },
+        { gen: 2, id: "eddie" }
+    ],
+    links: [
+        // imps
+        { source: "anish", target: "vivek", family: "imps" },
+        { source: "anish", target: "li", family: "imps" },
+        { source: "anish", target: "katherine", family: "imps" },
+        { source: "anish", target: "max", family: "imps" },
+        { source: "anish", target: "andy", family: "imps" },
+        { source: "anish", target: "andrew", family: "imps" },
+        { source: "anish", target: "charles", family: "imps" },
+        { source: "anish", target: "anish jr", family: "imps" },
+        { source: "anish", target: "pius", family: "imps" },
+        { source: "anish", target: "vidhaat", family: "imps" },
+        { source: "anish", target: "vidur", family: "imps" },
 
-    // izzy's icees
-    { source: "izzy", target: "ivory", family: "icees" },
-    { source: "izzy", target: "aiden", family: "icees" },
-    { source: "izzy", target: "jesse", family: "icees" },
-    { source: "izzy", target: "vincent", family: "icees" },
-    { source: "izzy", target: "andrew", family: "icees" },
-    { source: "izzy", target: "yue", family: "icees" },
-    { source: "izzy", target: "kaitlyn", family: "icees" },
-    { source: "izzy", target: "justin", family: "icees" },
+        // izzy's icees
+        { source: "izzy", target: "ivory", family: "icees" },
+        { source: "izzy", target: "aiden", family: "icees" },
+        { source: "izzy", target: "jesse", family: "icees" },
+        { source: "izzy", target: "vincent", family: "icees" },
+        { source: "izzy", target: "andrew", family: "icees" },
+        { source: "izzy", target: "yue", family: "icees" },
+        { source: "izzy", target: "kaitlyn", family: "icees" },
+        { source: "izzy", target: "justin", family: "icees" },
 
-    // ashlings
-    { source: "ash", target: "aiden", family: "ashlings" },
-    { source: "ash", target: "jesse", family: "ashlings" },
-    { source: "ash", target: "edward", family: "ashlings" },
-    { source: "ash", target: "steven", family: "ashlings" },
-    { source: "ash", target: "max", family: "ashlings" },
-    { source: "ash", target: "vidhaat", family: "ashlings" },
+        // ashlings
+        { source: "ash", target: "aiden", family: "ashlings" },
+        { source: "ash", target: "jesse", family: "ashlings" },
+        { source: "ash", target: "edward", family: "ashlings" },
+        { source: "ash", target: "steven", family: "ashlings" },
+        { source: "ash", target: "max", family: "ashlings" },
+        { source: "ash", target: "vidhaat", family: "ashlings" },
 
-    // lee's leafs
-    { source: "lee", target: "li", family: "leafs" },
-    { source: "lee", target: "katherine", family: "leafs" },
-    { source: "lee", target: "amy", family: "leafs" },
-    { source: "lee", target: "max", family: "leafs" },
-    { source: "lee", target: "faisal", family: "leafs" },
+        // lee's leafs
+        { source: "lee", target: "li", family: "leafs" },
+        { source: "lee", target: "katherine", family: "leafs" },
+        { source: "lee", target: "amy", family: "leafs" },
+        { source: "lee", target: "max", family: "leafs" },
+        { source: "lee", target: "faisal", family: "leafs" },
 
-    // mochis
-    { source: "emma", target: "eddie", family: "mochis" },
-    { source: "emma", target: "aiden", family: "mochis" },
-    { source: "emma", target: "jesse", family: "mochis" },
-  ]
+        // mochis
+        { source: "emma", target: "eddie", family: "mochis" },
+        { source: "emma", target: "aiden", family: "mochis" },
+        { source: "emma", target: "jesse", family: "mochis" },
+    ]
 };
 
 const textureLoader = new THREE.TextureLoader();
 
 const createCircularMask = () => {
-  const canvas = document.createElement('canvas');
-  const size = 256;
-  canvas.width = size;
-  canvas.height = size;
+    const canvas = document.createElement('canvas');
+    const size = 256;
+    canvas.width = size;
+    canvas.height = size;
 
-  const ctx = canvas.getContext('2d')!;
-  ctx.beginPath();
-  ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-  ctx.fillStyle = 'white';
-  ctx.fill();
+    const ctx = canvas.getContext('2d')!;
+    ctx.beginPath();
+    ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+    ctx.fillStyle = 'white';
+    ctx.fill();
 
-  return new THREE.CanvasTexture(canvas);
+    return new THREE.CanvasTexture(canvas);
 };
 
 const circularMask = createCircularMask();
 
 const graph = new ForceGraph3D(document.querySelector('body')!)
-  .graphData(data)
-  .nodeLabel("id")
-  .nodeAutoColorBy("gen")
-  .linkAutoColorBy("family")
-  .linkWidth(1)
-  .linkOpacity(0.5)
-  .linkResolution(6)
-  .nodeThreeObject((node: NodeType) => {
-    const id = typeof node.id === "string" ? node.id : String(node.id);
+    .graphData(data)
+    .nodeLabel("id")
+    .nodeAutoColorBy("gen")
+    .linkAutoColorBy("family")
+    .linkWidth(1)
+    .linkOpacity(0.5)
+    .linkResolution(6)
+    .nodeThreeObject((node: NodeType) => {
+        const id = typeof node.id === "string" ? node.id : String(node.id);
 
-    const texture = textureLoader.load(`./photos/${id}.png`);
-    const material = new THREE.SpriteMaterial({
-      map: texture,
-      alphaMap: circularMask,
+        const texture = textureLoader.load(`./photos/${id}.png`);
+        const material = new THREE.SpriteMaterial({
+            map: texture,
+            alphaMap: circularMask,
 
-      // get rid of black border behind mask
-      // interestingly, this occludes links and not other sprites
-      depthTest: false,
-    });
+            // get rid of black border behind mask
+            // interestingly, this occludes links and not other sprites
+            depthTest: false,
+        });
 
-    const sprite = new THREE.Sprite(material);
-    const scale = node.gen === 1 ? 18 : 12;
-    sprite.scale.set(scale, scale, 1);
-    sprite.renderOrder = 100000; // render over links
+        const sprite = new THREE.Sprite(material);
+        const scale = node.gen === 1 ? 18 : 12;
+        sprite.scale.set(scale, scale, 1);
+        sprite.renderOrder = 100000; // render over links
 
-    return sprite;
-  })
-  .nodeThreeObjectExtend(true); // enables custom objects
+        return sprite;
+    })
+    .nodeThreeObjectExtend(true); // enables custom objects
 
 window.addEventListener("resize", () => {
-  graph.width(window.innerWidth).height(window.innerHeight);
+    graph.width(window.innerWidth).height(window.innerHeight);
 })
