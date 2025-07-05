@@ -159,6 +159,69 @@ const graph = new ForceGraph3D(document.querySelector('body')!)
 const starfield = createStarfield();
 graph.scene().add(starfield);
 
+const initialDistance = 300;
+graph.cameraPosition({ x: initialDistance, y: 0, z: 0 });
+
+let angle = 0;
+const rotationSpeed = 0.001;
+
+let isUserInteracting = false;
+let interactionTimeout: number;
+
+const getCurrentAngleFromCamera = () => {
+    const cameraPos = graph.cameraPosition();
+    return Math.atan2(cameraPos.z, cameraPos.x);
+}
+
+const getCurrentDistanceFromCamera = () => {
+    const cameraPos = graph.cameraPosition();
+    // distance from center (ignoring Y for horizontal rotation)
+    return Math.sqrt(cameraPos.x * cameraPos.x + cameraPos.z * cameraPos.z);
+};
+
+// detect user interaction + resume after 2.5 seconds of no interaction
+const graphElement = graph.graphData().nodes.length > 0 ? graph : null;
+if (graphElement) {
+    const canvas = document.querySelector('canvas');
+    if (canvas) {
+        canvas.addEventListener('mousedown', () => {
+            isUserInteracting = true;
+            clearTimeout(interactionTimeout);
+            interactionTimeout = setTimeout(() => {
+                isUserInteracting = false;
+                angle = getCurrentAngleFromCamera();
+            }, 2500);
+        });
+
+        canvas.addEventListener('wheel', () => {
+            isUserInteracting = true;
+            clearTimeout(interactionTimeout);
+            interactionTimeout = setTimeout(() => {
+                isUserInteracting = false;
+                angle = getCurrentAngleFromCamera();
+            }, 2500);
+        });
+    }
+}
+
+const animate = () => {
+    if (!isUserInteracting) {
+        angle += rotationSpeed;
+
+        // default to initialDistance if camera is at center
+        const distance = getCurrentDistanceFromCamera() || initialDistance;
+        const x = Math.cos(angle) * distance;
+        const z = Math.sin(angle) * distance;
+
+        const currentY = graph.cameraPosition().y;
+        graph.cameraPosition({ x, y: currentY, z });
+    }
+
+    requestAnimationFrame(animate);
+};
+
+animate();
+
 window.addEventListener("resize", () => {
     graph.width(window.innerWidth).height(window.innerHeight);
 })
