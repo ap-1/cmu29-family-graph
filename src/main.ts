@@ -25,6 +25,7 @@ const data = {
         { gen: 2, id: "pius" },
         { gen: 2, id: "vidhaat" },
         { gen: 2, id: "vidur" },
+        { gen: 2, id: "mithun" },
         { gen: 2, id: "ivory" },
         { gen: 2, id: "aiden" },
         { gen: 2, id: "jesse" },
@@ -51,6 +52,8 @@ const data = {
         { source: "anish", target: "pius", family: "imps" },
         { source: "anish", target: "vidhaat", family: "imps" },
         { source: "anish", target: "vidur", family: "imps" },
+        { source: "anish", target: "mithun", family: "imps" },
+        { source: "anish", target: "ivory", family: "imps" },
 
         // izzy's icees
         { source: "izzy", target: "ivory", family: "icees" },
