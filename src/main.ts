@@ -23,10 +23,11 @@ const data = {
         { gen: 2, id: "charles" },
         { gen: 2, id: "anish jr" },
         { gen: 2, id: "pius" },
-        { gen: 2, id: "vidhaat" },
+        { gen: 2, id: "violet" },
         { gen: 2, id: "vidur" },
         { gen: 2, id: "mithun" },
         { gen: 2, id: "ivory" },
+        { gen: 2, id: "yusuf" },
         { gen: 2, id: "aiden" },
         { gen: 2, id: "jesse" },
         { gen: 2, id: "vincent" },
@@ -50,10 +51,11 @@ const data = {
         { source: "anish", target: "charles", family: "imps" },
         { source: "anish", target: "anish jr", family: "imps" },
         { source: "anish", target: "pius", family: "imps" },
-        { source: "anish", target: "vidhaat", family: "imps" },
+        { source: "anish", target: "violet", family: "imps" },
         { source: "anish", target: "vidur", family: "imps" },
         { source: "anish", target: "mithun", family: "imps" },
         { source: "anish", target: "ivory", family: "imps" },
+        { source: "anish", target: "yusuf", family: "imps" },
 
         // izzy's icees
         { source: "izzy", target: "ivory", family: "icees" },
@@ -71,7 +73,7 @@ const data = {
         { source: "ash", target: "edward", family: "ashlings" },
         { source: "ash", target: "steven", family: "ashlings" },
         { source: "ash", target: "max", family: "ashlings" },
-        { source: "ash", target: "vidhaat", family: "ashlings" },
+        { source: "ash", target: "violet", family: "ashlings" },
 
         // lee's leafs
         { source: "lee", target: "li", family: "leafs" },
