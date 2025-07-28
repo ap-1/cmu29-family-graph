@@ -84,6 +84,7 @@ const data = {
         { source: "lee", target: "amy", family: "leafs" },
         { source: "lee", target: "max", family: "leafs" },
         { source: "lee", target: "faisal", family: "leafs" },
+        { source: "lee", target: "jesse", family: "leafs" },
 
         // julia's icecreams
         { source: "julia", target: "eddie", family: "icecream" },
