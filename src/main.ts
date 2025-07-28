@@ -9,6 +9,7 @@ interface NodeType {
 
 const data = {
     nodes: [
+        { gen: 1, id: "julia" },
         { gen: 1, id: "lee" },
         { gen: 1, id: "anish" },
         { gen: 1, id: "izzy" },
@@ -38,7 +39,9 @@ const data = {
         { gen: 2, id: "steven" },
         { gen: 2, id: "amy" },
         { gen: 2, id: "faisal" },
-        { gen: 2, id: "eddie" }
+        { gen: 2, id: "eddie" },
+        { gen: 2, id: "keeler" },
+        { gen: 2, id: "mik" }
     ],
     links: [
         // imps
@@ -81,6 +84,16 @@ const data = {
         { source: "lee", target: "amy", family: "leafs" },
         { source: "lee", target: "max", family: "leafs" },
         { source: "lee", target: "faisal", family: "leafs" },
+
+        // julia's icecreams
+        { source: "julia", target: "eddie", family: "icecream" },
+        { source: "julia", target: "aiden", family: "icecream" },
+        { source: "julia", target: "katherine", family: "icecream" },
+        { source: "julia", target: "jesse", family: "icecream" },
+        { source: "julia", target: "kaitlyn", family: "icecream" },
+        { source: "julia", target: "keeler", family: "icecream" },
+        { source: "julia", target: "mik", family: "icecream" },
+        { source: "julia", target: "ivory", family: "icecream" },
 
         // mochis
         { source: "emma", target: "eddie", family: "mochis" },
