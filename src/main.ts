@@ -9,8 +9,8 @@ interface NodeType {
 
 const data = {
     nodes: [
-        { gen: 1, id: "julia" },
-        { gen: 1, id: "lee" },
+        { gen: 0, id: "julia" },
+        { gen: 0, id: "lee" },
         { gen: 1, id: "anish" },
         { gen: 1, id: "izzy" },
         { gen: 1, id: "ash" },
@@ -85,6 +85,7 @@ const data = {
         { source: "lee", target: "max", family: "leafs" },
         { source: "lee", target: "faisal", family: "leafs" },
         { source: "lee", target: "jesse", family: "leafs" },
+        { source: "lee", target: "izzy", family: "leafs" },
 
         // julia's icecreams
         { source: "julia", target: "eddie", family: "icecream" },
@@ -167,7 +168,7 @@ const graph = new ForceGraph3D(document.querySelector('body')!)
         });
 
         const sprite = new THREE.Sprite(material);
-        const scale = node.gen === 1 ? 18 : 12;
+        const scale = 12 + 6 * (node.gen ?? 0);
         sprite.scale.set(scale, scale, 1);
         sprite.renderOrder = 100000; // render over links
 
