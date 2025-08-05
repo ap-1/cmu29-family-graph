@@ -168,7 +168,7 @@ const graph = new ForceGraph3D(document.querySelector('body')!)
         });
 
         const sprite = new THREE.Sprite(material);
-        const scale = 12 + 6 * (node.gen ?? 0);
+        const scale = 12 - 3 * (node.gen ?? 0);
         sprite.scale.set(scale, scale, 1);
         sprite.renderOrder = 100000; // render over links
 
